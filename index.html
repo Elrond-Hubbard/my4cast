@@ -14,34 +14,55 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="h-100 w-100">
 
-    <header>
+    <header class="mb-5">
         <h1>My4Cast</h1>
     </header>
 
-    <main class="row border">
+
+    <main class="row border pt-5">
+
 
         <section id="search" class="border col-3">
 
             <div id="search-input" class="border">
                 <h3>Search for a City:</h2>
-                <input id="search-form" class="form-control form-control-lg" type="text">
-                <button type="button" class="btn btn-primary w-100">Search</button>
+                <input id="search-form" class="form-control form-control-lg mb-2" type="text">
+                <button type="button" class="btn btn-primary w-100 mb-3">Search</button>
             </div>
 
-            <div id="search-history" class="border">SEARCH HISTORY</div>
+            <div id="search-history" class="border">
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </div>
 
         </section>
+
+
         <section id="dashboard" class="border col">
+
             <div id="current-report" class="border">CURRENT WEATHER</div>
-            <div id="forecast" class="border row">
-                <card id="day-1" class="border col-2">DAY 1</card>
+
+            <div id="forecast" class="border d-flex justify-content-evenly">
+                <div class="card col-2">
+                    <div class="card-body">
+                      <h5 class="card-title">DD/MM/YYY</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Sunny</h6>
+                      <p class="card-text">Temp:</p>
+                      <p class="card-text">Wind:</p>
+                      <p class="card-text">Humidity:</p>
+                    </div>
+                  </div>
                 <card id="day-2" class="border col-2">DAY 2</card>
                 <card id="day-3" class="border col-2">DAY 3</card>
                 <card id="day-4" class="border col-2">DAY 4</card>
                 <card id="day-5" class="border col-2">DAY 5</card>
             </div>
+
         </section>
 
     </main>
