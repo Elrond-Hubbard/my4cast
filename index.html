@@ -15,12 +15,30 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+
+    <header>
+        <h1>My4Cast</h1>
+    </header>
+    <main class="row border">
+        <section id="search" class="border col-3">
+            <div id="search-input" class="border">SEARCH INPUT</div>
+            <div id="search-history" class="border">SEARCH HISTORY</div>
+        </section>
+        <section id="dashboard" class="border col">
+            <div id="current-report" class="border">CURRENT WEATHER</div>
+            <div id="forecast" class="border row">
+                <card id="day-1" class="border col-2">DAY 1</card>
+                <card id="day-2" class="border col-2">DAY 2</card>
+                <card id="day-3" class="border col-2">DAY 3</card>
+                <card id="day-4" class="border col-2">DAY 4</card>
+                <card id="day-5" class="border col-2">DAY 5</card>
+            </div>
+        </section>
+
+    </main>
+    
 
     <script src="./assets/js/script.js"></script>
-
     <!-- Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
