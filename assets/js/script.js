@@ -1,6 +1,12 @@
 const formEl = $('#search-form');
 const buttonEl = $('#search-button');
 const historyEl = $('#search-history');
+const appId = '8a1eef5ee7f9bf0ec404673fdde28868';
+
+fetch('http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={8a1eef5ee7f9bf0ec404673fdde28868}')
+    .then(response => {
+        return response.json();
+    })
 
 
 $(document).ready(function () {
