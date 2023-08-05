@@ -6,6 +6,8 @@ const buttonEl = $('#search-button');
 const historyEl = $('#search-history');
 
 function fetchForecast(city) {
+
+    // Fetch coordinates for given city
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=8a1eef5ee7f9bf0ec404673fdde28868`)
             .then(response => {
                 return response.json();
@@ -13,14 +15,14 @@ function fetchForecast(city) {
             .then(response => {
                 lat = (response[0].lat);
                 lon = (response[0].lon);
-
-                // Fetch weather data
+                
+                // Fetch weather data for given coordinates
                 fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=8a1eef5ee7f9bf0ec404673fdde28868`)
                     .then(response => {
                         return response.json();
                     })
                     .then(response => {
-                        console.log(response)
+                        console.log(response);
                     })
             })
 };
