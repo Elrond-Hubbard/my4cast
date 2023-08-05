@@ -57,8 +57,8 @@ $(document).ready(function () {
     // Save search entries to history
     storageKey = (localStorage.length);
     buttonEl.on('click', function () {
-        historyEl.prepend(`<button type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
-        localStorage.setItem(storageKey, `<button type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
+        historyEl.prepend(`<button id="history-button" type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
+        localStorage.setItem(storageKey, `<button id="history-button" type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
         storageKey++;
 
         // Return forecast for search input
