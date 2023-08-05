@@ -19,7 +19,7 @@ function fetchForecast(city) {
             lon = (response[0].lon);
 
             // Fetch weather data for given coordinates
-            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=8a1eef5ee7f9bf0ec404673fdde28868`)
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=8a1eef5ee7f9bf0ec404673fdde28868&units=imperial`)
                 .then(response => {
                     return response.json();
                 })
@@ -32,8 +32,8 @@ function fetchForecast(city) {
                             <div class="card col-2">
                                 <div class="card-body">
                                     <h5 class="card-title">${response.list[i].dt_txt}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">${response.list[i].weather[0].icon}</h6>
-                                    <p class="card-text">Temp: ${response.list[i].main.temp}</p>
+                                    <img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png"</img>
+                                    <p class="card-text">Temp: ${response.list[i].main.temp} F</p>
                                     <p class="card-text">Wind: ${response.list[i].wind.speed} mph</p>
                                     <p class="card-text">Humidity: ${response.list[i].main.humidity}%</p>
                                 </div>
@@ -60,6 +60,8 @@ $(document).ready(function () {
         historyEl.prepend(`<button type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
         localStorage.setItem(storageKey, `<button type="button" class="btn btn-secondary w-100 mb-3">${formEl.val()}</button>`);
         storageKey++;
+
+        // Return forecast for search input
         fetchForecast(formEl.val());
     });
 });
