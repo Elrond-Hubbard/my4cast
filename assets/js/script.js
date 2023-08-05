@@ -38,6 +38,7 @@ function fetchForecast(city) {
                                     <p class="card-text">Humidity: ${response.list[i].main.humidity}%</p>
                                 </div>
                             </div>`);
+                        console.log(response);
                     }
                 })
         })
