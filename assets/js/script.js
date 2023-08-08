@@ -29,7 +29,7 @@ function fetchForecast(city) {
                     // For each day in the forecast, build a card
                     for (var i = 0; i < response.list.length; i += 8) {
                         forecastEl.append(`
-                            <div class="card col-2">
+                            <div class="card col-12 col-xl-2 mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">${response.list[i].dt_txt}</h5>
                                     <img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png"</img>
