@@ -25,8 +25,9 @@ function fetchForecast(city) {
                     return response.json();
                 })
                 .then(response => {
-                    console.log(response);
                     currentEl.empty();
+
+                    // Build card for current weather
                     currentEl.append(`
                         <div class="card-body">
                             <h5 class="card-title">${response.name} ${response.dt}</h5>
@@ -84,5 +85,8 @@ $(document).ready(function () {
         fetchForecast(formEl.val());
     });
 
-    
+    // Return forecast for history buttons
+    historyEl.on('click', 'button', function() {
+        fetchForecast($(this).text())
+    })
 });
