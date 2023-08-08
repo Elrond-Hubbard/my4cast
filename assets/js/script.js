@@ -45,10 +45,11 @@ function fetchForecast(city) {
                 })
                 .then(response => {
                     forecastEl.empty();
-
+                    console.log(response)
                     // For each day in the forecast, build a card
-                    for (var i = 1; i < response.list.length; i += 8) {
+                    for (var i = 6; i < response.list.length; i += 8) {
                         var time = (response.list[i].dt_txt);
+                        console.log(response.list[i].dt_txt)
                         forecastEl.append(`
                             <div class="card col-12 col-xl-2 mb-3">
                                 <div class="card-body">
