@@ -35,8 +35,7 @@ function fetchForecast(city) {
                             <p class="card-text">Temp: ${response.main.temp} F</p>
                             <p class="card-text">Wind: ${response.wind.speed} mph</p>
                             <p class="card-text">Humidity: ${response.main.humidity}%</p>
-                        </div>
-                    `)
+                        </div>`)
                 })
 
             // Fetch 5 day forecast for given coordinates
@@ -49,10 +48,11 @@ function fetchForecast(city) {
 
                     // For each day in the forecast, build a card
                     for (var i = 1; i < response.list.length; i += 8) {
+                        var time = (response.list[i].dt_txt);
                         forecastEl.append(`
                             <div class="card col-12 col-xl-2 mb-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">${response.list[i].dt_txt}</h5>
+                                    <h5 class="card-title">${dayjs(time).format('MM/DD/YYYY')}</h5>
                                     <img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png"</img>
                                     <p class="card-text">Temp: ${response.list[i].main.temp} F</p>
                                     <p class="card-text">Wind: ${response.list[i].wind.speed} mph</p>
