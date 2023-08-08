@@ -30,7 +30,7 @@ function fetchForecast(city) {
                     // Build card for current weather
                     currentEl.append(`
                         <div class="card-body">
-                            <h5 class="card-title">${response.name} ${response.dt}</h5>
+                            <h5 class="card-title">${response.name} today</h5>
                             <img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png"</img>
                             <p class="card-text">Temp: ${response.main.temp} F</p>
                             <p class="card-text">Wind: ${response.wind.speed} mph</p>
