@@ -5,6 +5,7 @@ const formEl = $('#search-form');
 const buttonEl = $('#search-button');
 const historyEl = $('#search-history');
 const forecastEl = $('#forecast');
+const currentEl = $('#current');
 
 
 function fetchForecast(city) {
@@ -18,7 +19,26 @@ function fetchForecast(city) {
             lat = (response[0].lat);
             lon = (response[0].lon);
 
-            // Fetch weather data for given coordinates
+            // Fetch current weather for given coordinates
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=8a1eef5ee7f9bf0ec404673fdde28868&units=imperial`)
+                .then(response => {
+                    return response.json();
+                })
+                .then(response => {
+                    console.log(response);
+                    currentEl.empty();
+                    currentEl.append(`
+                        <div class="card-body">
+                            <h5 class="card-title">${response.name} ${response.dt}</h5>
+                            <img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png"</img>
+                            <p class="card-text">Temp: ${response.main.temp} F</p>
+                            <p class="card-text">Wind: ${response.wind.speed} mph</p>
+                            <p class="card-text">Humidity: ${response.main.humidity}%</p>
+                        </div>
+                    `)
+                })
+
+            // Fetch 5 day forecast for given coordinates
             fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=8a1eef5ee7f9bf0ec404673fdde28868&units=imperial`)
                 .then(response => {
                     return response.json();
@@ -38,7 +58,6 @@ function fetchForecast(city) {
                                     <p class="card-text">Humidity: ${response.list[i].main.humidity}%</p>
                                 </div>
                             </div>`);
-                        console.log(response);
                     }
                 })
         })
@@ -64,4 +83,6 @@ $(document).ready(function () {
         // Return forecast for search input
         fetchForecast(formEl.val());
     });
+
+    
 });
