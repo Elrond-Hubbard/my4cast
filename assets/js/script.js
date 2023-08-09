@@ -1,6 +1,4 @@
 
-// API KEY: 8a1eef5ee7f9bf0ec404673fdde28868
-
 const formEl = $('#search-form');
 const buttonEl = $('#search-button');
 const historyEl = $('#search-history');
